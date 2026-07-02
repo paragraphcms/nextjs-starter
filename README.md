@@ -1,21 +1,32 @@
-# Next.js template
+# ParagraphCMS Next.js Starter
 
-This is a Next.js template with shadcn/ui.
+Ten README jest krótką dokumentacją projektu ParagraphCMS dla przykładu Next.js Starter. Projekt pokazuje podstawowy blog w App Routerze: `/blog` listuje wpisy z ParagraphCMS, a `/blog/[slug]` renderuje treść przez `@paragraphcms/parser-react`.
 
-## Adding components
+Oficjalny kontekst: [ParagraphCMS Next.js Quickstart](https://paragraphcms.com/docs/quickstart/nextjs).
 
-To add components to your app, run the following command:
+## Konfiguracja
+
+1. Skopiuj `.env.example` do `.env`.
+2. Ustaw `PARAGRAPH_API_KEY` kluczem API z ParagraphCMS.
+3. Wpisy powinny mieć slug, bo `generateStaticParams()` buduje z nich trasy.
+
+## Uruchomienie
 
 ```bash
-npx shadcn@latest add button
+pnpm install
+pnpm dev
 ```
 
-This will place the ui components in the `components` directory.
+Build i start produkcyjny:
 
-## Using components
-
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button";
+```bash
+pnpm build
+pnpm start
 ```
+
+## Najważniejsze pliki
+
+- `paragraph.config.ts` - wspólny klient ParagraphCMS.
+- `app/blog/page.tsx` - lista wpisów.
+- `app/blog/[slug]/page.tsx` - statyczne strony wpisów.
+- `components/blog/` - komponenty listy i pojedynczego wpisu.
